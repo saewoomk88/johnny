@@ -21,7 +21,7 @@
 		like '%'||#{search}||'%'
 	</select>
 	
-	<select id="list" parameterType="Pager" resultType="NoticeDTO">
+	<select id="list" parameterType="Pager" resultType="QnaDTO">
 		select * from
 		(select rownum R, N.* from
 		(select * from qna where
@@ -34,26 +34,29 @@
 		where R between #{startRow} and #{lastRow}
 	</select>
 	
-	<select id="select" parameterType="NoticeDTO" resultType="NoticeDTO">
+	<select id="select" parameterType="QnaDTO" resultType="QnaDTO">
 		select * from qna where num=#{num}
 	</select>
 	
-	<update id="replyUpdate">
+	<update id="replyUpdate" parameterType="QnaDTO">
 		update qna set step=step+1 where ref=#{ref} and step>#{step}		
 	</update>
 	
-	<insert id="reply">
+	<insert id="reply" parameterType="QnaDTO">
 		insert into qna values(
-			qna_seq.nextval,
+			qna_seq.nextval, #{title}, #{contents}, #{writer}, sysdate, 0,
+			#{ref}, #{step}, #{depth}
 		)
-		
 	</insert>
 	
-	<insert id="insert" parameterType="NoticeDTO">
-		insert into qna values(#{num}, #{title}, #{contents}, #{writer}, sysdate, 0)
+	<insert id="insert" parameterType="QnaDTO">
+		insert into qna values(
+			qna_seq.nextval, #{title}, #{contents}, #{writer}, sysdate, 0,
+			qna_seq.currval, 0, 0
+		)
 	</insert>
 	
-	<update id="update" parameterType="NoticeDTO">
+	<update id="update" parameterType="QnaDTO">
 		update qna set title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 	

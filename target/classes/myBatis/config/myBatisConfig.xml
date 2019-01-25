@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.om.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.om.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.om.util.Pager" alias="Pager"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>
 	</typeAliases>
