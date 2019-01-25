@@ -11,7 +11,7 @@ public class BoardDTO {
 	private Date reg_date;
 	private int hit;
 	
-	
+		
 	public int getNum() {
 		return num;
 	}

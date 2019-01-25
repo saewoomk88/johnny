@@ -4,5 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
 <configuration>
-	
+	<typeAliases>
+		<typeAlias type="com.om.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.om.util.Pager" alias="Pager"/>
+		<typeAlias type="java.lang.Integer" alias="Integer"/>
+	</typeAliases>
 </configuration>
