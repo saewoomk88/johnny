@@ -183,12 +183,12 @@ a:hover {
 		</div>
 		<div class="row contents">
 
-			<div class="contents-title">${Ndto.title}</div>
-			<div class="contents-reg">${Ndto.reg_date}</div>
-			<div class="contents-hit">${Ndto.hit}</div>
-			<div class="contents-con">${Ndto.contents}</div>
-			<div class="button"><a href="${board }Update?num=${Ndto.num}">Update</a></div>
-			<div class="button"><a href="${board }Delete?num=${Ndto.num}">Delete</a></div>
+			<div class="contents-title">${dto.title}</div>
+			<div class="contents-reg">${dto.reg_date}</div>
+			<div class="contents-hit">${dto.hit}</div>
+			<div class="contents-con">${dto.contents}</div>
+			<div class="button"><a href="${board }Update?num=${dto.num}">Update</a></div>
+			<div class="button"><a href="${board }Delete?num=${dto.num}">Delete</a></div>
 		</div>
 
 
@@ -196,7 +196,7 @@ a:hover {
 
 
 		<div class="row">
-
+		<c:if test="${board eq 'notice' }">
 			<table class="table table-responsive">
 				<thead>
 					<tr>
@@ -222,7 +222,7 @@ a:hover {
 
 				</tbody>
 			</table>
-
+		</c:if>
 
 
 		</div>
@@ -230,29 +230,34 @@ a:hover {
 		<!-- Pagination -->
 
 		<div class="button">
-		<a href="${board}Write"><span>Write</span></a>
+			<a href="${board}Write"><span>Write</span></a>
 		</div>
-
+		<c:if test="${board ne 'notice' }">
+		<div class="button">
+			<a href="${board}Reply?num=${dto.num}"><span>Reply</span></a>
+		</div>
+		</c:if>
+		<c:if test="${board eq 'notice' }">
 		<ul class="pagination justify-content-center">
 			<c:if test="${pager.curBlock>1}">
 				<li class="page-item"><a class="page-link"
-					href="./${board}List?curPage=${pager.startNum-1}"
+					href="./${board}Select?num=${dto.num}&curPage=${pager.startNum-1}"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 						<span class="sr-only">Previous</span>
 				</a></li>
 			</c:if>
 			<c:forEach begin="${pager.startNum }" end="${pager.lastNum }" var="i">
 				<li class="page-item"><a class="page-link"
-					href="./${board }List?curPage=${i}">${i }</a></li>
+					href="./${board }Select?num=${dto.num}&curPage=${i}">${i }</a></li>
 			</c:forEach>
 			<c:if test="${pager.curBlock<pager.totalBlock }">
 				<li class="page-item"><a class="page-link"
-					href="${board }List?curPage=${pager.lastNum+1}" aria-label="Next">
+					href="${board }Select?num=${dto.num}&curPage=${pager.lastNum+1}" aria-label="Next">
 						<span aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
 				</a></li>
 			</c:if>
 		</ul>
-
+		</c:if>
 	</div>
 	<!-- /.container -->
 

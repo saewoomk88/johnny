@@ -170,14 +170,19 @@ a:hover {
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${list }" var="notice">
+					<c:forEach items="${list }" var="dto">
 
 						<tr class="tr">
-							<td>${notice.num}</td>
-							<td class="num"><a href="${board}Select?num=${notice.num}">${notice.title}</a></td>
-							<td>${notice.writer }</td>
-							<td>${notice.reg_date }</td>
-							<td>${notice.hit}</td>
+							<td>${dto.num}</td>
+							<td class="num"><a href="${board}Select?num=${dto.num}">
+							<c:catch>
+								<c:forEach begin="1" end="${dto.depth }"><img alt="" src="../resources/image/icon_re.gif"> </c:forEach>
+							</c:catch>
+							${dto.title}
+							</a></td>
+							<td>${dto.writer }</td>
+							<td>${dto.reg_date }</td>
+							<td>${dto.hit}</td>
 						</tr>
 
 					</c:forEach>

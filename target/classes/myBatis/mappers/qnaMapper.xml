@@ -30,7 +30,7 @@
 			<when test="kind=='title'">title</when>
 		</choose>
 		like '%'||#{search}||'%'
-		order by num desc) N)
+		order by ref desc, step asc) N)
 		where R between #{startRow} and #{lastRow}
 	</select>
 	
@@ -49,7 +49,7 @@
 		)
 	</insert>
 	
-	<insert id="insert" parameterType="QnaDTO">
+	<insert id="insert" parameterType="BoardDTO">
 		insert into qna values(
 			qna_seq.nextval, #{title}, #{contents}, #{writer}, sysdate, 0,
 			qna_seq.currval, 0, 0

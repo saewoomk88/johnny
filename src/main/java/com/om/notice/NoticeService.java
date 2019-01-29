@@ -41,7 +41,7 @@ public class NoticeService implements BoardService{
 		pager.makePage(totalCount);
 		
 		if(boardDTO !=null) {
-			mv.addObject("Ndto", boardDTO);
+			mv.addObject("dto", boardDTO);
 			mv.addObject("list", noticeDAO.list(pager));
 			mv.addObject("pager", pager);
 			mv.setViewName("board/boardSelect");
