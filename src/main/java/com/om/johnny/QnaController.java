@@ -64,13 +64,13 @@ public class QnaController {
 		return mv;
 	}
 	
-	@RequestMapping(value="noticeUpdate", method=RequestMethod.POST)
+	@RequestMapping(value="qnaUpdate", method=RequestMethod.POST)
 	public ModelAndView update(BoardDTO boardDTO) throws Exception{
 		
 		return qnaService.update(boardDTO);
 	}
 	
-	@RequestMapping(value="noticeDelete", method= {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="qnaDelete", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView delete(int num) throws Exception{
 		
 		return qnaService.delete(num);
