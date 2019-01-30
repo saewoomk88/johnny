@@ -10,5 +10,7 @@
 		<typeAlias type="com.om.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.om.util.Pager" alias="Pager"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>
+		<typeAlias type="com.om.member.MemberDTO" alias="MemberDTO"/>
+		
 	</typeAliases>
 </configuration>

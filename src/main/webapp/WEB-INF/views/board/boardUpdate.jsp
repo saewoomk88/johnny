@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Modern Business - Start Bootstrap Template</title>
+<title>Johnny 2019</title>
 
 <!-- Bootstrap core CSS -->
 <link
@@ -155,8 +155,8 @@ $(function(){
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2018</p>
+			<p class="m-0 text-center text-white">Copyright &copy; 
+				Johnny 2019</p>
 		</div>
 		<!-- /.container -->
 	</footer>
