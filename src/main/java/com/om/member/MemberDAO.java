@@ -5,9 +5,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.om.util.Pager;
 
+@Repository
 public class MemberDAO {
 	
 	@Inject
