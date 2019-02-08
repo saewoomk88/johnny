@@ -32,9 +32,10 @@
                 Member
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/member/login">Login</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/member/insert">Join</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/member/select">MyPage</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/member/logout">Logout</a>
               </div>
             </li>
             <li class="nav-item dropdown">

@@ -43,7 +43,7 @@ public class MemberController {
 	@RequestMapping(value="login", method=RequestMethod.GET)
 	public void login()throws Exception{}
 	
-	@RequestMapping(value="join", method=RequestMethod.POST)
+	@RequestMapping(value="login", method=RequestMethod.POST)
 	public ModelAndView login(MemberDTO memberDTO, HttpSession session) throws Exception {
 		
 		return memberService.login(memberDTO, session);

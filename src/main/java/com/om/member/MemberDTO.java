@@ -10,7 +10,6 @@ public class MemberDTO {
 	private String address;
 	private String phone;
 	private String email;
-	private String sex;
 	private Date join_date;
 	private String lv;
 	
@@ -52,12 +51,7 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+	
 	public Date getJoin_date() {
 		return join_date;
 	}
