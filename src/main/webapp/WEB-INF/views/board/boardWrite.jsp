@@ -75,6 +75,20 @@ a:visited{
 .btn{
 	float: right;
 }
+
+.button {
+	float: left;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	padding: 0 12px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.button:hover {
+	border: 1px solid #000;
+	cursor:pointer
+}
 </style>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -132,16 +146,16 @@ $(function(){
 				<div class="form-group">
 					<textarea class="form-control" rows="10" id="contents" name="contents"></textarea>
 				</div>
-				<div class="form-group">
-					<input type="button" id="save" value="Write" class="btn btn-default">
-				</div>
 					
 				<div>
-					<input type="text" name="writer" value="IU" readonly="readonly">
+					<input type="text" name="writer" value="${member.id }" readonly="readonly">
 				</div>
 				
 			</form>
 
+				<div class="button" id="save">
+					<span>Write</span>
+				</div>
 
 		</div>
 

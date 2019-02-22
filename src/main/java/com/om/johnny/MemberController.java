@@ -67,7 +67,7 @@ public class MemberController {
 		return memberService.update(memberDTO, session);
 	}
 	
-	@RequestMapping(value="delete", method=RequestMethod.POST)
+	@RequestMapping(value="delete")
 	public ModelAndView delete(HttpSession session) throws Exception {
 		
 		return memberService.delete(session);

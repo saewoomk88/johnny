@@ -46,11 +46,6 @@ footer {
 	bottom: 0;
 }
 
-.t1{width: 10%;}
-.t2{width: 60%;}
-.t3{width: 10%;}
-.t4{width: 10%;}
-.t5{width: 10%;}
 
 a:link{
 	color: black;
@@ -58,14 +53,18 @@ a:link{
 a:visited{
 	color: black;
 }
+a:hover {
+	text-decoration: none;
+} 
 
 .board{
 	text-transform: uppercase;
+	text-align: center;
 }
 
 .frm{
-	width: 100%;
-	
+	width: 50%;
+	margin: 0 auto;
 }
 
 .contents{
@@ -75,35 +74,43 @@ a:visited{
 .btn{
 	float: right;
 }
+
+.tablee{
+	border: 1px solid black;
+}
+.you{
+	margin: 10px 0;
+}
+.you>div{
+	display: inline-block;
+	margin-left: 80px;
+    width: 20%;
+}
+
+.button {
+	float: left;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	padding: 0 12px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.button:hover {
+	border: 1px solid #000;
+}
+ 
+
 </style>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 var oEditors = [];
 $(function(){
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: oEditors,
-        //textarea 의 ID
-        elPlaceHolder: "contents",
-        //SmartEditor2Skin.html 파일이 존재하는 경로
-        sSkinURI: "${pageContext.request.contextPath}/resources/SE2/SmartEditor2Skin.html",  
-        htParams : {
-            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseToolbar : true,             
-            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseVerticalResizer : true,     
-            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseModeChanger : true,         
-            fOnBeforeUnload : function(){
-                 
-            }
-        }
-        
-    });
+   
    
     $("#save").click(function(){
-        oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", ["수정"]);
-        $("#frm").submit();
+      $("#frm").submit();
     });  
    
 });
@@ -120,30 +127,34 @@ $(function(){
 	<div class="container wrap">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3 board">${board} Reply</h1>
+		<h1 class="mt-4 mb-3 board">마이페이지</h1>
 
-		<div class="row tablee">
-
-			<form class="frm" id="frm" action="${board}Reply" method="post">
-				<div class="form-group">
-					<input type="text"
-						class="form-control" id="title" name="title" placeholder="제목을 입력하세요.">
-				</div>
-				<div class="form-group">
-					<textarea class="form-control" rows="10" id="contents" name="contents"></textarea>
-				</div>
-				<div class="form-group">
-					<input type="button" id="save" value="Write" class="btn btn-default">
-				</div>
-					
-				<div>
-					<input type="text" name="writer" value="${member.id}" readonly="readonly">
-					<input type="hidden" name="num" value="${num }">
-				</div>
-				
-			</form>
-
-
+		<div class="tablee">
+			<div class="you">
+			<div>아이디</div><div>${member.id}</div>
+			</div>
+			<div class="you">
+			<div>이름</div><div>${member.name}</div>
+			</div>
+			<div class="you">
+			<div>주소</div><div>${member.address}</div>
+			</div>
+			<div class="you">
+			<div>핸드폰</div><div>${member.phone}</div>
+			</div>
+			<div class="you">
+			<div>이메일</div><div>${member.email}</div>
+			</div>
+			<div class="you">
+			<div>등급</div><div>${member.lv}</div>
+			</div>
+		</div>
+		
+		<div class="button">
+			<a href="./update"><span>수정</span></a>
+		</div>
+		<div class="button">
+			<a href="./delete"><span>탈퇴</span></a>
 		</div>
 
 		

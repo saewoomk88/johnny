@@ -66,6 +66,7 @@ public class MemberService {
 		String path="";
 		if(memberDTO !=null) {
 			session.setAttribute("member", memberDTO);
+			System.out.println(memberDTO.getPw());
 			path="redirect:../";
 		}else {
 			path="redirect:./login";
@@ -118,7 +119,9 @@ public class MemberService {
 		ModelAndView mv = new ModelAndView();
 		
 		MemberDTO loginDTO = (MemberDTO)session.getAttribute("member");
+		System.out.println(loginDTO.getPw());
 		int result = memberDAO.delete(loginDTO);
+		
 		String msg = "탈퇴 실패";
 		if(result>0) {
 			msg = "탈퇴 성공";

@@ -5,12 +5,13 @@
   
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.om.file.FileDTO" alias="FileDTO"/>
 		<typeAlias type="com.om.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.om.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.om.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.om.util.Pager" alias="Pager"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>
 		<typeAlias type="com.om.member.MemberDTO" alias="MemberDTO"/>
-		
+		<typeAlias type="com.om.product.ProductDTO" alias="ProductDTO"/>
 	</typeAliases>
 </configuration>

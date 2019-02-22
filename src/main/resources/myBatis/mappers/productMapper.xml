@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="productMapper">
+	<select id="getNum" resultType="java.lang.String">
+		select 'johnny'||product_seq.nextval from dual
+	</select>
+
+	<select id="totalCount" parameterType="Pager" resultType="Integer">
+		select count(num) from product where
+		<choose>
+			<when test="kind=='p_name'">
+				p_name
+			</when>
+			<when test="kind=='brand'">
+				brand
+			</when>
+		</choose>
+		like '%'||#{search}||'%'
+	</select>
+	
+	<select id="list" parameterType="Pager" resultType="ProductDTO">
+		select * from
+		(select rownum R, N.* from
+		(select * from product where
+		<choose>
+			<when test="kind=='p_name'">p_name</when>
+			<when test="kind=='brand'">brand</when>
+		</choose>
+		like '%'||#{search}||'%'
+		order by num desc) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="select" parameterType="java.lang.String" resultType="ProductDTO">
+		select * from product where p_code=#{p_code}
+	</select>
+	
+	<insert id="insert" parameterType="ProductDTO">
+		insert into product values(#{p_code}, #{p_name}, #{brand}, #{price}, #{hit},
+		#{sale}, #{good} #{contents}, #{writer},  sysdate)
+	</insert>
+	
+	<update id="update" parameterType="ProductDTO">
+		update product set p_name=#{p_name}, brand=#{brand}, price=#{price}, contents=#{contents} where p_code=#{p_code}
+	</update>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		delete product where p_code=#{p_code}
+	</delete>
+	
+</mapper>  

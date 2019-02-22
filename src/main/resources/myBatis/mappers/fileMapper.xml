@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="fileMapper">
+  	<insert id="insert" parameterType="FileDTO">
+  		insert into image values(image_seq.nextval,#{p_code},#{fname},#{oname})
+  	</insert>
+  	
+  	<select id="list" parameterType="FileDTO" resultType="FileDTO">
+  		select * from image where p_code=#{p_code}
+  	</select>
+  	
+  	<select id="select" parameterType="Integer" resultType="FileDTO">
+  		select * from image where i_num=#{i_num}
+  	</select>
+  	
+  	<delete id="delete" parameterType="Integer">
+  		delete image where i_num=#{i_num}
+  	</delete>
+  	
+  	<delete id="deleteAll" parameterType="java.lang.String">
+  		delete image where p_code=#{p_code}
+  	</delete>
+  	
+  	<update id="update">
+  		update image set 
+  	</update>
+  		
+  </mapper>
